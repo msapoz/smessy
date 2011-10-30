@@ -4,8 +4,7 @@ from circuits.net.sockets import TCPServer
 
 class PongServer(TCPServer):
 
-    def connect(self, sock, host, port):
-        self.write(sock, 'HTTP/1.0 200 OK\r\nContent-Length: 5\r\n\r\nPong!\r\n')
-        self.close(sock)
+    def read(self, sock, data):
+        print "I haz sms:", data
 
-PongServer(('localhost', 8050)).run()
+PongServer(('newyr.me', 8050)).run()
